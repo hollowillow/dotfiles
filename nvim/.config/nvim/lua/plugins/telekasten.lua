@@ -13,6 +13,7 @@ return {
                         filename_space_subst = "-",
                         filename_small_case = true,
                         rename_update_links = true,
+                        subdirs_in_links = false,
                         vaults = { -- setup for multiple vaults
                                 --zettelkasten = { home = vim.fn.expand("~/notes/zettelkasten/"), templates = vim.fn.expand("~/notes/zettelkasten/templates") },
                         },
