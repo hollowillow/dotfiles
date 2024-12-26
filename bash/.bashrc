@@ -23,7 +23,7 @@ export PATH="$HOME/.bin:$PATH"
 alias ls='ls --color=auto --group-directories-first -v'
 alias la='ls --color=auto --group-directories-first -Av'
 alias ll='ls --color=auto --group-directories-first -lAv'
-alias lr='ranger'
+alias lr='. ranger'
 alias vi='nvim'
 alias c='clear'
 alias h='history'
