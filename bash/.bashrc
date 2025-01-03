@@ -29,7 +29,6 @@ alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
 alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
-alias kpxc='~/.bin/squashfs-root/AppRun'
 
 # safety nets
 alias rm='rm -I --preserve-root'
