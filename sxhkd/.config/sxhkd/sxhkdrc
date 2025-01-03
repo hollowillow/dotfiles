@@ -10,6 +10,11 @@ alt + Return
 alt + {space,Tab}
 	rofi -show {drun,window}
 
+
+# change opacity of current focused window
+alt + {minus,equal,o}
+        picom-trans -c {-5,+5,--toggle 100}
+
 # use autostart 1
 super + 1
 	$HOME/.bin/autostart.sh
