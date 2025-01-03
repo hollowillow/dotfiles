@@ -29,7 +29,6 @@ alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
 alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
-alias xev="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'"
 
 # safety nets
 alias rm='rm -I --preserve-root'
