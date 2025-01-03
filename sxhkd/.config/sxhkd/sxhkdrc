@@ -7,20 +7,17 @@ alt + Return
 	alacritty
 
 # program launcher
-alt + d
-	rofi -show drun
+alt + {space,Tab}
+	rofi -show {drun,window}
+
+
+# change opacity of current focused window
+alt + {minus,equal,o}
+        picom-trans -c {-5,+5,--toggle 100}
 
 # use autostart 1
 super + 1
 	$HOME/.bin/autostart.sh
-
-
-
-
-
-
-# make sxhkd reload its configuration files
-#alt + Escape
 
 #
 # bspwm hotkeys
@@ -95,8 +92,8 @@ alt + {p,b,comma,period}
 #	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-alt + {grave,Tab}
-	bspc {node,desktop} -f last
+#alt + {grave,Tab}
+#	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 #super + {o,i}
