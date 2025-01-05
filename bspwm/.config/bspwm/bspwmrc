@@ -1,9 +1,20 @@
 #! /bin/sh
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd & #load sxhkd
+picom & #load picom
+killall -q polybar; polybar & #kill and set new polybar instance
+feh --bg-scale "$HOME/.dotfiles/wallpaper.jpg" & #set wallpaper
+xrandr -r 120 & #set monitor refresh rate
 
+# Autostart script
+startup_lock=/tmp/autostart.lock
+if [ ! -e $startup_lock ]; then
+	$HOME/.bin/autostart.sh
+        echo "dummy" > $startup_lock &
+fi
+
+# define workspaces
 bspc monitor -d utils browser media games passwords VI VII VIII  audio discord
-
 
 # define default appearance
 bspc config normal_border_color "#282A2E"
@@ -18,7 +29,7 @@ bspc config pointer_action1 move
 bspc config pointer_action2 resize_corner
 bspc config pointer follows focus
 
-# spawn specified app only in said window 
+# spawn specified app only in specified workspace 
 bspc rule -a Blueman-manager desktop='^1' 
 bspc rule -a firefox desktop='^2'
 bspc rule -a mpv desktop='^3'
@@ -27,26 +38,3 @@ bspc rule -a steam desktop='^4'
 bspc rule -a KeePassXC desktop='^5'
 bspc rule -a QjackCtl desktop='^9'
 bspc rule -a discord desktop='^10'
-
-# kill and set new polybar instance
-killall -q polybar
-polybar & 
-
-# set wallpaper
-feh --bg-scale $HOME/media/pictures/wallpaper.jpg
-
-# set monitor refresh rate
-xrandr -r 120
-
-picom &
-
-# Autostart
-startup_lock=/tmp/bspwm-startup.lock
-if [ ! -e $startup_lock ]; then
-	$HOME/.bin/autostart.sh
-        echo "dummy" > $startup_lock &
-fi
-
-# state=floating follow=on
-# bspc rule -a Kupfer.py focus=on
-# bspc rule -a Screenkey manage=off
