@@ -1,6 +1,6 @@
 #! /bin/sh
 
-pkill sxhkd; pgrep -x sxhkd > /dev/null || sxhkd & #load sxhkd
+pkill -USR1 -x sxhkd; pgrep -x sxhkd > /dev/null || sxhkd & #load sxhkd
 picom & #load picom
 killall -q polybar; polybar & #kill and set new polybar instance
 feh --bg-scale "../../../wallpaper.jpg" & #set wallpaper
