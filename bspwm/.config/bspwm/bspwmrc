@@ -14,7 +14,7 @@ if [ ! -e $startup_lock ]; then
 fi
 
 # define workspaces
-bspc monitor -d utils browser media games passwords VI VII VIII  audio discord
+bspc monitor -d  󰈹     VII VIII 󱡬 󰭹
 
 # define default appearance
 bspc config normal_border_color "#282A2E"
