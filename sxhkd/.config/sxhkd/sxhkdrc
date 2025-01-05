@@ -20,7 +20,7 @@ alt + {minus,equal,o}
 
 # quit/restart bspwm and sxhkd
 alt + shift + {q,r}
-	bspc {quit,wm -r} 
+	bspc {quit,wm -r} && pkill -USR1 -x sxhkd
 
 # close and kill
 alt + {q, Escape}
