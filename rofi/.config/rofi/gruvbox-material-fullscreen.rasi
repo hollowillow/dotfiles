@@ -20,8 +20,8 @@ configuration {
     display-drun:   "";
     display-window: "";
     display-combi:  "";
-/*    show-icons:     true;*/
-/*    icon-theme: "Papirus";*/
+//    show-icons: true;
+//    icon-theme: "Papirus";
 }
 
 window {
