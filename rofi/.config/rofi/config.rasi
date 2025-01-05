@@ -1,0 +1,7 @@
+configuration {
+    modes: "window,drun,run,ssh";
+    eh: 3;
+}
+
+@theme "./gruvbox-material-fullscreen.rasi"
+//@theme "./gruvbox-material.rasi"
