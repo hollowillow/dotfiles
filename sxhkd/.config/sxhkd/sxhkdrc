@@ -93,7 +93,7 @@ XF86AudioPrev
 	playerctl previous || echo playlist-prev | socat - "$HOME/.config/mpv/socket"
 
 # screenshots
-Print + {alt, ctrl}
+Print + {_,alt, ctrl}
 	magick import {-window root,clipboard} "$HOME/media/pictures/screenshot.png"
 	
 # 
