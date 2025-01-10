@@ -31,11 +31,18 @@ alt + m
 	bspc desktop -l next
 
 #
+# tdrop
+#
+super + {1,2,3,4}
+        tdrop -am -w 40% -x 30% -y 25% -n {0 st,1 st -e ranger,2 st -e newsboat,3 st -e nvim}
+
+
+#
 # state/flags
 #
 
 # set the window state
-alt + {t,shift + t,s,f}
+alt + {t,shift + t,shift + f,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -101,8 +108,8 @@ Print + {_,alt, ctrl}
 #
 
 # use autostart 1
-super + 1
-	autostart.sh
+#super + 1
+#	autostart.sh
 
 #
 # keybinds that i dont use, but wanna have at the back of my mind just in case
