@@ -4,7 +4,7 @@
 
 # terminal emulator
 alt + Return
-	alacritty
+        st
 
 # program launcher
 alt + {space,Tab}
@@ -34,7 +34,7 @@ alt + m
 # tdrop
 #
 super + {1,2,3,4}
-        tdrop -am -w 40% -x 30% -y 25% -n {0 st,1 st -e ranger,2 st -e newsboat,3 st -e nvim}
+        tdrop -am --class st -w 40% -x 30% -y 25% -n {0 st,1 st -e ranger,2 st -e newsboat,3 st -e nvim}
 
 
 #
