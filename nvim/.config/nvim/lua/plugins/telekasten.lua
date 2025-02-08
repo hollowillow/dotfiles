@@ -16,6 +16,7 @@ return {
                         subdirs_in_links = false,
                         vaults = { -- setup for multiple vaults
                                 --zettelkasten = { home = vim.fn.expand("~/notes/zettelkasten/"), templates = vim.fn.expand("~/notes/zettelkasten/templates") },
+                                rpgs = { home = vim.fn.expand("~/notes/rpgs/"), templates = vim.fn.expand("~/notes/zettelkasten/templates") },
                         },
                 })
 
