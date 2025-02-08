@@ -20,3 +20,8 @@
     - youtube: using newsboat to fetch channel feeds and a macro for playback through mpv with yt-dlp
     - anime: ani-cli and ani-skip
 - virtualization: qemu/kvm + virt-manager
+
+## RICE
+- color theme: Gruvbox Material
+- font: CaskaydiaCove nerd font
+- mono/terminal font: Hasklug nerd font
