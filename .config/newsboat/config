@@ -10,7 +10,7 @@ confirm-exit yes
 macro SPACE set browser "mpv %u --fs video" ; open-in-browser ; set browser "elinks %u"
 
 # bookmarking
-bookmark-cmd "echo >> /home/megamind/.config/newsboat/bookmarks"
+bookmark-cmd "echo >> \"$HOME\"/notes/bookmarks/youtube"
 bookmark-autopilot yes
 
 # col # item		# fg   	# bg	# format
