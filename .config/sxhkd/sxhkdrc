@@ -40,11 +40,11 @@ super + {1,2,3,4}
 
 # autostart applications
 super + a 
-        autostart.sh
+        $HOME/.bin/autostart.sh
 
 # type yt channel bookmark
-super + b
-        bm-yt-channel.sh
+super + {b,shift + b}
+        $HOME/.bin/{bm-yt.sh,bm-yt-channel.sh}
 
 #
 # state/flags
