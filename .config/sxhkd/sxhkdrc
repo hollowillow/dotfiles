@@ -31,11 +31,20 @@ alt + m
 	bspc desktop -l next
 
 #
-# tdrop
+# super script binds and such
 #
+
+# tdrop
 super + {1,2,3,4}
         tdrop -am --class st -w 40% -x 30% -y 25% -n {0 st,1 st -e ranger,2 st -e newsboat,3 st -e nvim}
 
+# autostart applications
+super + a 
+        $HOME/.bin/autostart.sh
+
+# type yt channel bookmark
+super + {b,shift + b}
+        $HOME/.bin/{bm-yt.sh,bm-yt-channel.sh}
 
 #
 # state/flags
