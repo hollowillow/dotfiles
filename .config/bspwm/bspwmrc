@@ -1,8 +1,8 @@
 #! /bin/sh
 
-killall -q sxhkd & pgrep -x sxhkd > /dev/null || sxhkd & #load sxhkd
+killall -q sxhkd && pgrep -x sxhkd > /dev/null || sxhkd & #kill and load sxhkd
 picom & #load picom
-killall -q polybar; polybar & #kill and set new polybar instance
+killall -q polybar && polybar & #kill and set new polybar instance
 feh --bg-scale "$HOME/.dotfiles/wallpaper.jpg" & #set wallpaper
 xrandr -r 120 & #set monitor refresh rate
 
