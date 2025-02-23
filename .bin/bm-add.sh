@@ -11,12 +11,13 @@ case "$chosen" in
         "other") file="$HOME/notes/bookmarks/other" ;;
 esac
 
-if grep -q "^$bookmark$" "$file"; then
+if grep -q "^$bookmark" "$file"; then
         notify-send "Already bookmarked!"
-else 
-        echo "$bookmark" >> "$file"
+else
+        #parsing an empty echo command into dmenu allows you to type anything and have that as the output of dmenu
+        echo "$bookmark $(echo  | dmenu -i -p 'Type tags/title: ')" >> "$file"
         notify-send "$bookmark added to $file."
 fi
 
 #to do:
-#add functionality for adding tags/title to the end of the line after the link via dmenu
+#add a new script for removing bookmarks
