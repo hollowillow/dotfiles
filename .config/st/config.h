@@ -94,7 +94,7 @@ unsigned int tabspaces = 8;
 /* Gruvbox Colors */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"#665c54",
+	"#ffffff",
 	"#ea6962",
 	"#a9b665",
 	"#e78a4e",
@@ -104,7 +104,7 @@ static const char *colorname[] = {
 	"#dfbf8e",
 
 	/* 8 bright colors */
-	"#928374",
+	"#32302f",
 	"#ea6962",
 	"#a9b665",
 	"#e3a84e",
