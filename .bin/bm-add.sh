@@ -1,7 +1,7 @@
 #!/bin/sh
 
 categories="youtube\ngit\nother"
-chosen=$(echo -e "$categories" | dmenu -i)
+chosen=$(echo -e "$categories" | dmenu -i -p "Select category: ")
 
 bookmark=$(xclip -o -selection clipboard)
 
@@ -17,3 +17,6 @@ else
         echo "$bookmark" >> "$file"
         notify-send "$bookmark added to $file."
 fi
+
+#to do:
+#add functionality for adding tags/title to the end of the line after the link via dmenu
