@@ -46,6 +46,10 @@ super + a
 super + {b,shift + b,ctrl + b}
         $HOME/.bin/{bm-cat.sh,bm-add.sh,bm.sh}
 
+# dmenu web search
+super + o
+        $HOME/.bin/search.sh
+
 #
 # state/flags
 #
