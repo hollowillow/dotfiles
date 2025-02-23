@@ -1,33 +1,19 @@
 #!/bin/sh
 
-choices="youtube\ngit\nother"
-chosen=$(echo -e "$choices" | dmenu -i)
-bmdir="$HOME/notes/bookmarks"
+categories="youtube\ngit\nother"
+chosen=$(echo -e "$categories" | dmenu -i)
 
 bookmark=$(xclip -o -selection clipboard)
 
 case "$chosen" in
-        "youtube") 
-                if grep -q "^$bookmark$" "$bmdir/youtube"; then 
-                        notify-send "Already bookmarked!"
-                else 
-                        echo "$bookmark" >> "$bmdir/youtube"
-                        notify-send "$bookmark added."
-                fi;;
-
-        "git") 
-                if grep -q "^$bookmark$" "$bmdir/git"; then 
-                        notify-send "Already bookmarked!"
-                else 
-                        echo "$bookmark" >> "$bmdir/git"
-                        notify-send "$bookmark added."
-                fi;;
-
-        "other") 
-                if grep -q "^$bookmark$" "$bmdir/other"; then 
-                        notify-send "Already bookmarked!"
-                else 
-                        echo "$bookmark" >> "$bmdir/other"
-                        notify-send "$bookmark added."
-                fi;;
+        "youtube") file="$HOME/notes/bookmarks/youtube" ;;
+        "git") file="$HOME/notes/bookmarks/git" ;;
+        "other") file="$HOME/notes/bookmarks/other" ;;
 esac
+
+if grep -q "^$bookmark$" "$file"; then
+        notify-send "Already bookmarked!"
+else 
+        echo "$bookmark" >> "$file"
+        notify-send "$bookmark added to $file."
+fi

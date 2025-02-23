@@ -1,13 +1,14 @@
 #!/bin/sh
 
-choices="youtube\ngit\nother"
-chosen=$(echo -e "$choices" | dmenu -i)
-bmdir="$HOME/notes/bookmarks/"
+categories="youtube\ngit\nother\nchannel"
+chosen=$(echo -e "$categories" | dmenu -i)
 
 case "$chosen" in
-        "youtube") xdotool type $(sed "/^#/ d; /^$/ d" $bmdir/youtube | dmenu -i -l 20 | cut -d' ' -f1);;
-        "git") xdotool type $(sed "/^#/ d; /^$/ d" $bmdir/git | dmenu -i -l 20 | cut -d' ' -f1);;
-        "other") xdotool type $(sed "/^#/ d; /^$/ d" $bmdir/other | dmenu -i -l 20 | cut -d' ' -f1);;
+        "youtube") file="$HOME/notes/bookmarks/youtube" ;;
+        "git") file="$HOME/notes/bookmarks/git" ;;
+        "other") file="$HOME/notes/bookmarks/git" ;;
+        "channel") file="$HOME/.config/newsboat/urls" ;;
 esac 
 
+xdotool type $(sed "/^#/ d; /^$/ d; s|feeds/videos.xml?channel_id=|channel/|" $file | dmenu -i -l 20 | cut -d' ' -f1)
 notify-send "Bookmark pasted."
