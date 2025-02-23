@@ -43,8 +43,8 @@ super + a
         $HOME/.bin/autostart.sh
 
 # type yt channel bookmark
-super + {b,shift + b}
-        $HOME/.bin/{bm.sh,bm-add.sh}
+super + {b,shift + b,ctrl + b}
+        $HOME/.bin/{bm-cat.sh,bm-add.sh,bm.sh}
 
 #
 # state/flags
