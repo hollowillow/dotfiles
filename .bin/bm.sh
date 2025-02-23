@@ -15,4 +15,5 @@ xdotool type $(sed "/^#/ d; /^$/ d; s|feeds/videos.xml?channel_id=|channel/|" $f
 notify-send "Bookmark pasted."
 
 #to do: 
-#make another script that concatenates all of these files, for quicker access without choosing categories
+#maybe add a way of quickly adding rss feeds to newsboat, but it's not so simple to get your hands on the 
+#link to the channel with the id nowadays anyways, that it would probably not make the process much easier
