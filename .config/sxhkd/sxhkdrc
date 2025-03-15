@@ -42,9 +42,9 @@ super + {1,2,3,4}
 super + a 
         $HOME/.bin/autostart.sh
 
-# type yt channel bookmark
+# bookmark script
 super + {b,shift + b,ctrl + b}
-        $HOME/.bin/{bm-cat.sh,bm-add.sh,bm.sh}
+        $HOME/.bin/bookmark.sh -m rofi -a {open,add,remove} -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
 
 # dmenu web search
 super + o
