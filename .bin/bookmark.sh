@@ -108,6 +108,7 @@ while getopts "hm:a:f:" argument 2>/dev/null; do
                 # if so, let's you select a file in the menu, else uses the single file
                 # this could be done via [[ =~ ]] however that is not POSIX compliant, and so a case statement is used
                 # sometimes parsing multiple files produces unexpected results if -f isn't the last option
+                # to parse in all the files from a directory you can use -f "$(printf '%s ' path/to/directory/*)"
                 f) space="* *" && case "${OPTARG}" in
                         $space) set -- "${OPTARG}" && for files in "$@"; do
                                         file="$(printf '%s\n' $files | ${menu} 'Select file: ')"
