@@ -21,7 +21,7 @@
 
 window {
     height: 600;
-    width: 600;
+    width: 1000;
 
     border: 1;
     border-radius: 10;
