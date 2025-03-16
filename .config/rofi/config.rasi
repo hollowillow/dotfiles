@@ -3,5 +3,5 @@ configuration {
     eh: 3;
 }
 
-@theme "./gruvbox-material-fullscreen.rasi"
-//@theme "./gruvbox-material.rasi"
+//@theme "./gruvbox-material-fullscreen.rasi"
+@theme "./gruvbox-material.rasi"
