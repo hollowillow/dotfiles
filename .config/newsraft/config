@@ -1,0 +1,20 @@
+# Keybinds
+bind j select-next
+bind k select-prev
+bind l enter
+bind h quit
+bind d mark-read; jump-to-next
+bind D mark-unread; jump-to-next
+bind o open-in-browser
+bind r reload
+bind R reload-all
+bind m exec mpv --fs --no-terminal "%l" &
+bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a add -f "$HOME/notes/bookmarks/youtube $HOME/notes/bookmarks/git $HOME/notes/bookmarks/other"
+bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a remove -f "$HOME/notes/bookmarks/youtube $HOME/notes/bookmarks/git $HOME/notes/bookmarks/other"
+
+# Settings
+# reloads every 30 minutes
+reload-period 30
+# removes yt shorts
+item-rule link NOT LIKE "%youtube.com/shorts%"
+menu-feed-sorting unread-desc
