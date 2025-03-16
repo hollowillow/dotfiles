@@ -9,12 +9,9 @@ bind o open-in-browser
 bind r reload
 bind R reload-all
 bind m exec mpv --fs --no-terminal "%l" &
-bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a add -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
-bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a remove -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
+bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a add -f "$(echo $HOME/notes/bookmarks/*)"
+bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a remove -f "$(echo $HOME/notes/bookmarks/*)"
 
 # Settings
-# reloads every 30 minutes
-reload-period 30
-# removes yt shorts
-item-rule link NOT LIKE "%youtube.com/shorts%"
+reload-period 30 # in minutes
 menu-feed-sorting unread-desc
