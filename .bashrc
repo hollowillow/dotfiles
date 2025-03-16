@@ -29,7 +29,7 @@ alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
 alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
-alias bm='bookmark.sh -m fzf -a open -f "$HOME/notes/bookmarks/youtube $HOME/notes/bookmarks/git $HOME/notes/bookmarks/other"'
+alias rss='newsraft -f $HOME/notes/bookmarks/rss'
 
 # safety nets
 alias rm='rm -I --preserve-root'
@@ -39,6 +39,12 @@ alias ln='ln -i'
 
 # autostart neofetch
 neofetch
+
+# functions
+
+bm () {
+        bookmark.sh -m fzf -a open -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
+}
 
 # use nvim as a pager
 #export PAGER="nvim -R"

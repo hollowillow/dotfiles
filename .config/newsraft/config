@@ -9,8 +9,8 @@ bind o open-in-browser
 bind r reload
 bind R reload-all
 bind m exec mpv --fs --no-terminal "%l" &
-bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a add -f "$HOME/notes/bookmarks/youtube $HOME/notes/bookmarks/git $HOME/notes/bookmarks/other"
-bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a remove -f "$HOME/notes/bookmarks/youtube $HOME/notes/bookmarks/git $HOME/notes/bookmarks/other"
+bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a add -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
+bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark.sh -m fzf -a remove -f "$(printf '%s ' $HOME/notes/bookmarks/*)"
 
 # Settings
 # reloads every 30 minutes
