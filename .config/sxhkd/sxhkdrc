@@ -47,8 +47,8 @@ alt + {b,shift + b,ctrl + b}
         $HOME/.bin/bookmark -nq -m rofi -a {open,add,remove} -f $HOME/notes/bookmarks
 
 # dmenu web search
-alt + o
-        $HOME/.bin/search -m rofi
+alt + {o,shift + o}
+        $HOME/.bin/search -m rofi -b {tabFirefox,instanceFirefox}
 
 #
 # state/flags

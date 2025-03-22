@@ -32,7 +32,7 @@ bspc config pointer follows focus
 
 # spawn specified app only in specified workspace 
 bspc rule -a Blueman-manager desktop='^1' 
-bspc rule -a --one-shot firefox desktop='^2'
+bspc rule -a firefox --one-shot desktop='^2' 
 bspc rule -a mpv desktop='^3'
 bspc rule -a rss desktop='^3'
 bspc rule -a steam desktop='^4'

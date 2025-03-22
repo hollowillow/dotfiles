@@ -1,18 +1,22 @@
 #!/bin/sh
 
 menu="dmenu -i -l 20 -p"
-query=
+browser="firefox"
 
-while getopts "m:" OPT; do
+while getopts "m:b:" OPT; do
         case "${OPT}" in
                 m) case "${OPTARG}" in 
-                # menu commands must end with a prompt option in order to display prompts properly"
-                dmenu) menu="dmenu -i -l 20 -p";;
-                rofi) menu="rofi -dmenu -i -window-title bookmark.sh -p";;
-                # fzf has to run within a terminal, not usable systemwide
-                fzf) menu="fzf --header=bookmark.sh --bind=enter:replace-query+print-query --prompt";;
-                *) printf '%s\n' "Error: Incorrect argument" && exit 1;;
-                esac;;
+                        # menu commands must end with a prompt option in order to display prompts properly"
+                        dmenu) menu="dmenu -i -l 20 -p";;
+                        rofi) menu="rofi -dmenu -i -window-title bookmark.sh -p";;
+                        # fzf has to run within a terminal, not usable systemwide
+                        fzf) menu="fzf --header=bookmark.sh --bind=enter:replace-query+print-query --prompt";;
+                        *) printf '%s\n' "Error: Incorrect argument" && exit 1;;
+                   esac;;
+                b) case "${OPTARG}" in
+                        tabFirefox) browser="firefox --new-tab";;
+                        instanceFirefox) browser="firefox --new-window";;
+                   esac;;
                 *) printf '%s\n' "Error: Incorrect option" && exit 1;;
 esac
 done
@@ -45,4 +49,4 @@ if [ -z "$query" ]; then
         exit 1;
 fi
 
-firefox "${engine}${query}" &
+${browser} "${engine}${query}" &
