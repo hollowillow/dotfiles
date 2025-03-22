@@ -50,6 +50,12 @@ alt + {b,shift + b,ctrl + b}
 alt + {o,shift + o}
         $HOME/.bin/search -m rofi -b {tabFirefox,instanceFirefox}
 
+alt + slash
+        $HOME/.bin/manmenu -m rofi
+
+alt + shift + Escape
+        $HOME/.bin/power -m rofi
+
 #
 # state/flags
 #
