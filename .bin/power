@@ -16,9 +16,10 @@ while getopts "m:" OPT; do
 esac
 done
 
-chosen="$(printf "Suspend\nPower Off\nReboot" | ${menu} "Select a means of shutdown: ")"
+chosen="$(printf "Lock\nSuspend\nPower Off\nReboot" | ${menu} "Select a means of shutdown: ")"
 
 case $chosen in
+        "Lock") if [ $(printf "No\nYes" | ${menu} "Are you certain?") == "Yes" ]; then slock; fi;;
         "Suspend") if [ $(printf "No\nYes" | ${menu} "Are you certain?") == "Yes" ]; then systemctl suspend; fi;;
         "Power Off") if [ $(printf "No\nYes" | ${menu} "Are you certain?") == "Yes" ]; then systemctl poweroff; fi;;
         "Reboot") if [ $(printf "No\nYes" | ${menu} "Are you certain?") == "Yes" ]; then systemctl reboot; fi;;
