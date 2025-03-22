@@ -11,7 +11,7 @@ alt + {space,Tab}
 	rofi -show {drun,window}
 
 # change opacity of current focused window
-alt + {minus,equal,o}
+alt + {minus,equal,shift + equal}
         picom-trans -c {-5,+5,--toggle 100}
 
 #
@@ -43,12 +43,12 @@ super + a
         $HOME/.bin/autostart.sh
 
 # bookmark script
-super + {b,shift + b,ctrl + b}
+alt + {b,shift + b,ctrl + b}
         $HOME/.bin/bookmark -nq -m rofi -a {open,add,remove} -f $HOME/notes/bookmarks
 
 # dmenu web search
-super + o
-        $HOME/.bin/search.sh
+alt + {o,shift + o}
+        $HOME/.bin/search -m rofi -b {tabFirefox,instanceFirefox}
 
 #
 # state/flags
@@ -75,8 +75,8 @@ alt + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # focus the node for the given path jump
-alt + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+#alt + {p,b,comma,period}
+#	bspc node -f @{parent,brother,first,second}
 
 #
 # function keys
