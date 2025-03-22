@@ -9,8 +9,8 @@ xrandr -r 120 & #set monitor refresh rate
 # Autostart script
 startup_lock=/tmp/autostart.lock
 if [ ! -e $startup_lock ]; then
-	$HOME/.bin/autostart.sh
-        echo "dummy" > $startup_lock &
+	$HOME/.bin/autostart
+        touch $startup_lock &
 fi
 
 # define workspaces
@@ -32,9 +32,9 @@ bspc config pointer follows focus
 
 # spawn specified app only in specified workspace 
 bspc rule -a Blueman-manager desktop='^1' 
-bspc rule -a firefox desktop='^2'
+bspc rule -a --one-shot firefox desktop='^2'
 bspc rule -a mpv desktop='^3'
-bspc rule -a newsboat desktop='^3'
+bspc rule -a rss desktop='^3'
 bspc rule -a steam desktop='^4'
 bspc rule -a KeePassXC desktop='^5'
 bspc rule -a QjackCtl desktop='^9'

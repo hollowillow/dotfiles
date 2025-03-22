@@ -1,0 +1,6 @@
+#!/bin/sh
+st &
+st -l htop &
+st -c rss -l newsraft &
+blueman-manager &
+firefox &

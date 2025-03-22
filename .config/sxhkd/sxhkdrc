@@ -40,7 +40,7 @@ super + {1,2,3,4}
 
 # autostart applications
 super + a 
-        $HOME/.bin/autostart.sh
+        $HOME/.bin/autostart
 
 # bookmark script
 alt + {b,shift + b,ctrl + b}
