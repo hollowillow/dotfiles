@@ -52,6 +52,10 @@ alt + {o,shift + o}
 
 alt + slash
         $HOME/.bin/manmenu -m rofi
+
+alt + shift + Escape
+        $HOME/.bin/power -m rofi
+
 #
 # state/flags
 #
