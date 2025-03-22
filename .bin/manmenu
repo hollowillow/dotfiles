@@ -2,6 +2,7 @@
 
 terminal="st"
 menu="dmenu -i -l 20 -p"
+export MANPAGER="nvim +Man!"
 
 while getopts "m:" OPT; do
         case "${OPT}" in

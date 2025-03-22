@@ -42,7 +42,7 @@ alias ln='ln -i'
 neofetch
 
 # use nvim as a pager
-export MANPAGER="nvim +Man"
+export MANPAGER="nvim +Man!"
 
 # use vim as a pager
 #export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
