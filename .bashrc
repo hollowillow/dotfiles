@@ -56,4 +56,11 @@ export MANPAGER="nvim +Man! +'set relativenumber'"
 #        neofetch
 #fi
 
-PS1='[\u@\h \W]\$ '
+. ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATUS=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWCOLORHINTS=1
+
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[91m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
+#PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[30m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
+#PS1='[\u@\h \W]\$ '
