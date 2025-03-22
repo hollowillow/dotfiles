@@ -42,7 +42,7 @@ alias ln='ln -i'
 neofetch
 
 # use nvim as a pager
-export MANPAGER="nvim +Man!"
+export MANPAGER="nvim +Man! +'set relativenumber'"
 
 # use vim as a pager
 #export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
@@ -52,10 +52,11 @@ export MANPAGER="nvim +Man!"
 #        neofetch
 #fi
 
-. ~/git-prompt.sh
+. ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATUS=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWCOLORHINTS=1
 
-PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[30m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[91m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
+#PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[30m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
 #PS1='[\u@\h \W]\$ '
