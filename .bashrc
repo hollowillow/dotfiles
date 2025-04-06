@@ -19,12 +19,16 @@ HISTCONTROL=ignoredups
 # user specific .bin path
 export PATH="$HOME/.bin:$PATH"
 
+# ENVIRONMENT VARIABLES
+export EDITOR='nvim'
+
 # aliases 
 alias ls='ls --color=auto --group-directories-first -v'
 alias la='ls --color=auto --group-directories-first -Av'
 alias ll='ls --color=auto --group-directories-first -lAv'
 alias lr='. ranger'
 alias vi='nvim'
+alias vim='nvim'
 alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
