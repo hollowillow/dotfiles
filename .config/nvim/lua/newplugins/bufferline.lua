@@ -14,6 +14,9 @@ config = function()
                         separator_style = 'slant',
                         style_preset = 'minimal',
                 },
+                -- keymaps
+                vim.keymap.set('n', '<leader>bd', '<cmd>bdelete %<cr>', { desc = 'delete current buffer'}),
+                vim.keymap.set('n', '<leader>bb', '<cmd>Dashboard<cr>', { desc = 'open new buffer'}),
                 --- config ---
 
         }
