@@ -2,6 +2,7 @@ return {
 
 {
         "folke/zen-mode.nvim",
+        cmd = 'ZenMode',
         opts = {
                 twilight = {enabled = true},
         },
