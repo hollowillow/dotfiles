@@ -44,7 +44,7 @@ super + a
 
 # type yt channel bookmark
 super + {b,shift + b}
-        $HOME/.bin/{bm-yt.sh,bm-yt-channel.sh}
+        $HOME/.bin/{bm.sh,bm-add.sh}
 
 #
 # state/flags
