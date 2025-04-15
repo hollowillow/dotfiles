@@ -20,7 +20,7 @@ alt + {minus,equal,shift + equal}
 
 # quit/restart bspwm and sxhkd
 alt + shift + {q,r}
-	bspc {quit,wm -r} 
+	bspc {quit,wm -r} && pkill -USR1 -x sxhkd
 
 # close and kill
 alt + {q, Escape}
@@ -31,7 +31,7 @@ alt + m
 	bspc desktop -l next
 
 #
-# super script binds and such
+# scripts and other
 #
 
 # tdrop
@@ -122,14 +122,6 @@ XF86AudioPrev
 Print + {_,alt, ctrl}
 	magick import {-window root,clipboard} "$HOME/media/pictures/screenshot.png"
 	
-# 
-# scripts
-#
-
-# use autostart 1
-#super + 1
-#	autostart.sh
-
 #
 # keybinds that i dont use, but wanna have at the back of my mind just in case
 #
