@@ -1,13 +1,23 @@
 return {
-        {
+
+{
         'nvim-telescope/telescope.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = function ()
-                -- Keymaps
-                vim.keymap.set('n', '<leader>ff', "<CMD>Telescope find_files<CR>", { desc = 'Telescope find files' })
-                vim.keymap.set('n', '<leader>fg', "<CMD>Telescope live_grep<CR>", { desc = 'Telescope live grep' })
-                vim.keymap.set('n', '<leader>fb', "<CMD>Telescope buffers<CR>", { desc = 'Telescope buffers' })
-                vim.keymap.set('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help tags' })
-        end,
-        },
+        cmd = "Telescope",
+        keys = {
+                {mode ='n','<leader>ff','<cmd>Telescope find_files<cr>',desc = 'Telescope find_files'},
+                {mode ='n','<leader>fg','<cmd>Telescope live_grep<cr>',desc = 'Telescope live_grep'},
+                {mode ='n','<leader>fb','<cmd>Telescope buffers<cr>',desc = 'Telescope buffers'},
+                {mode ='n','<leader>fh','<cmd>Telescope help_tags<cr>',desc = 'Telescope help_tags'},
+                {mode ='n','<leader>fr','<cmd>Telescope oldfiles<cr>',desc = 'Telescope help_tags'},
+                {mode ='n','<leader>fp','<cmd>Telescope builtin<cr>',desc = 'Telescope help_tags'},
+                {mode ='n', '<leader>fs', '<cmd>Telescope symbols<cr>', desc = 'Telescope help_tags'},
+        }
+},
+
+-- dependencies
+{'nvim-lua/plenary.nvim', lazy = true,},
+
+-- optional dependencies
+{'nvim-telescope/telescope-symbols.nvim'},
+
 }
