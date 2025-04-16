@@ -44,7 +44,7 @@ super + a
 
 # bookmark script
 alt + {b,shift + b,ctrl + b}
-        $HOME/.bin/bookmark -nq -m rofi -a {open,add,remove} -f $HOME/notes/bookmarks
+        $HOME/.bin/bookmark -a {open,add,remove} -f $HOME/notes/bookmarks
 
 # dmenu web search
 alt + {o,shift + o}
