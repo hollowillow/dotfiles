@@ -3,7 +3,8 @@
 pgrep -x sxhkd > /dev/null/ || sxhkd & #kill and load sxhkd
 picom & #load picom
 killall -q polybar; polybar & #kill and set new polybar instance
-feh --bg-scale "$HOME/.dotfiles/wallpaper.jpg" & #set wallpaper
+export WALLPAPER_DIR="$HOME/media/wallpapers"
+feh --bg-scale --randomize "$WALLPAPER_DIR" & #set wallpaper
 xrandr -r 120 & #set monitor refresh rate
 
 # Autostart script
