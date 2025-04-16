@@ -35,6 +35,7 @@ alias grep='grep --color=auto'
 alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
 alias newsraft='newsraft -f $HOME/notes/bookmarks/rss'
 alias bookmark='bookmark -nq -m fzf -a open -f $HOME/notes/bookmarks'
+alias bat='bat --theme base16'
 
 # safety nets
 alias rm='rm -I --preserve-root'
