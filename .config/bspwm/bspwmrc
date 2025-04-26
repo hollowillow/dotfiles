@@ -3,14 +3,13 @@
 pgrep -x sxhkd > /dev/null/ || sxhkd & #kill and load sxhkd
 picom & #load picom
 killall -q polybar; polybar & #kill and set new polybar instance
-export WALLPAPER_DIR="$HOME/media/wallpapers"
-feh --bg-scale --randomize "$WALLPAPER_DIR" & #set wallpaper
+feh --bg-scale --randomize "$WALLPAPERS_DIR" & #set wallpaper
 xrandr -r 120 & #set monitor refresh rate
 
 # Autostart script
 startup_lock=/tmp/autostart.lock
 if [ ! -e $startup_lock ]; then
-	$HOME/.bin/autostart
+	autostart
         touch $startup_lock &
 fi
 

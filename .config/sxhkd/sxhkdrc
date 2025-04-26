@@ -40,21 +40,21 @@ super + {1,2,3,4}
 
 # autostart applications
 super + a 
-        $HOME/.bin/autostart
+        autostart
 
 # bookmark script
 alt + {b,shift + b,ctrl + b}
-        $HOME/.bin/bookmark -a {open,add,remove} -f $HOME/notes/bookmarks
+        bookmark -a {open,add,remove} -f $BOOKMARKS_DIR
 
 # dmenu web search
 alt + {o,shift + o}
-        $HOME/.bin/search -m rofi -b {tabFirefox,instanceFirefox}
+        search -m rofi -b {tabFirefox,instanceFirefox}
 
 alt + slash
-        $HOME/.bin/manmenu -m rofi
+        manmenu -m rofi
 
 alt + shift + Escape
-        $HOME/.bin/power -m rofi
+        power -m rofi
 
 #
 # state/flags
