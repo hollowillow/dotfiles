@@ -16,12 +16,6 @@ fi
 # remove duplicate commands from history 
 HISTCONTROL=ignoredups
 
-# user specific .bin path
-export PATH="$HOME/.bin:$PATH"
-
-# ENVIRONMENT VARIABLES
-export EDITOR='nvim'
-
 # aliases 
 alias ls='ls --color=auto --group-directories-first -v'
 alias la='ls --color=auto --group-directories-first -Av'
@@ -45,12 +39,6 @@ alias ln='ln -i'
 
 # autostart neofetch
 neofetch
-
-# use nvim as a pager
-export MANPAGER="nvim +Man! +'set relativenumber'"
-
-# use vim as a pager
-#export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 
 #LIVE_COUNTER=$(ps a | awk '{print $2}' | grep -vi "tty*" | uniq | wc -l);
 #if [ $LIVE_COUNTER -eq 2 ]; then
