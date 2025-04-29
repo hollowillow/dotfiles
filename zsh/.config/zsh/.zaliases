@@ -1,0 +1,33 @@
+# Aliases
+if command -v eza >/dev/null 2>&1 ; then
+        alias ls='eza --color=always --icons=always --group-directories-first'
+        alias la='eza --color=always --icons=always --group-directories-first --almost-all'
+        alias ll='eza --color=always --icons=always --group-directories-first --almost-all --long'
+else
+        alias ls='ls --color=auto --group-directories-first -v'
+        alias la='ls --color=auto --group-directories-first -Av'
+        alias ll='ls --color=auto --group-directories-first -lAv'
+fi
+
+if command -v ranger >/dev/null 2>&1 ; then
+        alias lf='. ranger'
+fi
+
+if command -v nvim >/dev/null 2>&1 ; then
+        alias vi='nvim'
+        alias vim='nvim'
+fi
+
+alias c='clear'
+alias h='history'
+alias grep='grep --color=auto'
+alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
+alias newsraft='newsraft -f $HOME/notes/bookmarks/rss'
+alias bookmark='bookmark -a open -f $HOME/notes/bookmarks'
+alias bat='bat --theme base16'
+
+# safety nets
+alias rm='rm -I --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -i'
