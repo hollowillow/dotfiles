@@ -1,28 +1,33 @@
 #
-# ~/.dotfiles/.bash/.bashrc
+# bashrc
 #
 
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# if not root, then run with sudo
-if [ $UID -ne 0 ]; then
-       alias pacman='sudo pacman'       
-       alias mount='sudo mount'       
-       alias umount='sudo umount'       
-       alias fdisk='sudo fdisk'
-fi       
-
 # remove duplicate commands from history 
 HISTCONTROL=ignoredups
 
 # aliases 
-alias ls='ls --color=auto --group-directories-first -v'
-alias la='ls --color=auto --group-directories-first -Av'
-alias ll='ls --color=auto --group-directories-first -lAv'
-alias lr='. ranger'
-alias vi='nvim'
-alias vim='nvim'
+if command -v exa >/dev/null 2>&1 ; then
+        alias ls='eza --color=always --icons=always --group-directories-first'
+        alias la='eza --color=always --icons=always --group-directories-first --almost-all'
+        alias ll='eza --color=always --icons=always --group-directories-first --almost-all --long'
+else
+        alias ls='ls --color=auto --group-directories-first -v'
+        alias la='ls --color=auto --group-directories-first -Av'
+        alias ll='ls --color=auto --group-directories-first -lAv'
+fi
+
+if command -v ranger >/dev/null 2>&1 ; then
+        alias lf='. ranger'
+fi
+
+if command -v nvim >/dev/null 2>&1 ; then
+        alias vi='nvim'
+        alias vim='nvim'
+fi
+
 alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
@@ -53,3 +58,13 @@ export GIT_PS1_SHOWCOLORHINTS=1
 PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[91m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
 #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[30m\]\u@\h\[\e[0m\] \[\e[33m\][\[\e[93m\]\w\[\e[33m\]]\[\e[0m\]${PS1_CMD1} \[\e[92;1m\]>\[\e[0m\] '
 #PS1='[\u@\h \W]\$ '
+
+if command -v zoxide >/dev/null 2>&1 ; then
+        eval "$(zoxide init --cmd cd bash)"
+fi
+if command -v atuin >/dev/null 2>&1 ; then
+        eval "$(atuin init bash)"
+fi
+if command -v fzf >/dev/null 2>&1 ; then
+        eval "$(fzf --bash)"
+fi
