@@ -16,4 +16,4 @@ export BOOKMARKS_DIR="$HOME/notes/bookmarks"
 
 # SCRIPT DEFAULT MENU OPTIONS
 export TERM_MENU="fzf --ansi --color=16 --preview-window=top --prompt"
-export GUI_MENU="rofi -dmenu -i -p"
+export GUI_MENU="dmenu -p"
