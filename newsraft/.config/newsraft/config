@@ -8,10 +8,11 @@ bind D mark-unread; jump-to-next
 bind o open-in-browser
 bind r reload
 bind R reload-all
-bind m exec mpv --fs --no-terminal "%l" &
-bind b exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark -a add -f $HOME/notes/bookmarks
-bind B exec printf "%l" | xclip -i -selection clipboard; exec $HOME/.bin/bookmark -a remove -f $HOME/notes/bookmarks
+bind m exec nohup mpv --fs --no-terminal "%l" >/dev/null 2>&1 &
+bind b exec bm-add -l "%l" -n "%t - %T"
+bind B exec bm-open
 
 # Settings
 reload-period 30 # in minutes
 menu-feed-sorting unread-desc
+item-rule link NOT LIKE '%youtube.com/shorts%'
