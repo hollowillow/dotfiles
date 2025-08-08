@@ -3,8 +3,8 @@
 dynamic_title = true
 
 [font]
-normal = { family = "HasklugNerdFontMono" }
-size = 11
+normal = { family = "HasklugNerdFontMono-Medium" }
+size = 12
 
 # colour palette (gruvbox material)
 [colors.primary]
