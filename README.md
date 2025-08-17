@@ -1,27 +1,19 @@
-## MY ARCH ENVIRONMENT
-- display server: xorg
-- servise manager: systemd
-- display manager: lightdm
-- distribution: arch
-- shell: bash
-- window manager: bspwm 
-    - keybinds: sxhkd
-    - script launcher: rofi
-    - status bar: polybar
-    - compositor: picom
-- terminal emulator: st (also alacritty but primarily st nowadays)
-    - text editor: neovim 
-    - file manager: ranger
-    - other cli tools i frequent: wikiman, git, stow, neofetch
-- browser: firefox (hardened with arkenfox), tor 
-- gaming launchers: steam, retroarch
-- media playback: mpv
-    - feed congregation: newsboat
-    - youtube: using newsboat to fetch channel feeds and a macro for playback through mpv with yt-dlp
-    - anime: ani-cli and ani-skip
-- virtualization: qemu/kvm + virt-manager
+# Introduction
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-## RICE
+This repository contains my frequently used configurations for various programs. As of right now
+I primarily use an Arch Linux system with Hyprland (Wayland) and zsh for my interactive shell.
+
+## Other programs
+The following is a list of other programs I actively use. 
+- status bar: waybar
+- terminal emulator: alacritty
+- text editor: neovim 
+- media playback: mpv
+- feed reader: newsraft
+
+## Rice
+This is some other general information about my rice.
 - color theme: Gruvbox Material
-- font: CaskaydiaCove nerd font
-- mono/terminal font: Hasklug nerd font
+- system font: CaskaydiaCove Nerd Font
+- terminal font: Hasklug Nerd Font
