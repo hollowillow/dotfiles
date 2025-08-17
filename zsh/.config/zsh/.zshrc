@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then exec hyprland; fi
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
