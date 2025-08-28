@@ -4,6 +4,12 @@ export ZDOTDIR="$HOME/.config/zsh"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/scripts"
 
+# XDG BASE DIRECTORIES
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # ENVIRONMENT VARIABLES
 export TERMINAL='alacritty'
 export EDITOR='nvim'
