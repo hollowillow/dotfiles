@@ -1,4 +1,11 @@
-# Plugin function
+# plugin list
+plugins=(
+        romkatv/powerlevel10k
+        zsh-users/zsh-autosuggestions
+        zsh-users/zsh-syntax-highlighting
+)
+
+# plugin function
 function plugin-load {
   local repo plugdir initfile initfiles=()
   : ${ZPLUGINDIR:=${XDG_DATA_HOME:-${HOME}/.local/share}/zsh/plugins}
@@ -19,3 +26,6 @@ function plugin-load {
     (( $+functions[zsh-defer] )) && zsh-defer . $initfile || . $initfile
   done
 }
+
+# automatically run
+plugin-load $plugins

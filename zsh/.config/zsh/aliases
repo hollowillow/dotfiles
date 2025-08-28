@@ -18,10 +18,14 @@ if command -v nvim >/dev/null 2>&1 ; then
         alias vim='nvim'
 fi
 
+# general
 alias c='clear'
 alias h='history'
 alias grep='grep --color=auto'
 alias ping='ping -c 50 -i .2' #send 50 packets with an interval of .2 seconds
+alias mkdir='mkdir --parents'
+
+# program specific
 alias newsraft='newsraft -f $RSS_FILE'
 
 # safety nets
