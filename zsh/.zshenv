@@ -19,10 +19,13 @@ export MANPAGER="nvim +Man! +'set relativenumber'"
 # SCRIPT VARIABLES
 export WALLPAPERS_DIR="$HOME/.local/share/wallpapers/hd"
 export NOTES_DIR="$HOME/notes/zettelkasten"
-export BOOKMARK_FILE="$HOME/notes/bookmarks.md"
+export BOOKMARK_FILE="$HOME/notes/bookmarks.json"
 export SEARCH_HIST_FILE="$HOME/.local/state/search_history"
 export AUTOSTART_DIR="$HOME/.local/share/autostart_profiles"
 export RSS_FILE="notes/rss_file"
+export MENU="fzf"
 
 export FZF_DEFAULT_HEADER='btab:toggle-all  ctrl-a:select-all  ctrl-d:deselect-all  ctrl-t:toggle-preview'
 export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzfrc"
+
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
