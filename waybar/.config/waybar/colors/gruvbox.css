@@ -1,0 +1,22 @@
+/* Gruvbox Material Colors */
+@define-color bg_dim #1B1B1B;
+@define-color bg0 #282828;
+@define-color bg1 #32302F;
+@define-color bg2 #45403D;
+@define-color fg0 #D4BE98;
+@define-color fg1 #DDC7A1;
+
+@define-color red #402120;
+@define-color bright_red #EA6962;
+@define-color green  #34381B;
+@define-color bright_green #A9B665;
+@define-color yellow #4F422E;
+@define-color bright_yellow #D8A657;
+@define-color blue #0E363E;
+@define-color bright_blue #7DAEA3;
+@define-color magenta #443840;
+@define-color bright_magenta #D3869B;
+@define-color cyan #004B49;
+@define-color bright_cyan #89B482;
+@define-color orange #C76A3E;
+@define-color bright_orange #E78A4E;
