@@ -1,5 +1,6 @@
 [window]
 dynamic_title = true
+padding = { x = 20, y = 20 }
 
 [font]
 normal = { family = "Hasklug Nerd Font Mono SemBd" }
