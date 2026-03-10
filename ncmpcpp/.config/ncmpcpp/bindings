@@ -251,10 +251,7 @@ def_key "1"
  show_playlist
 
 def_key "2"
- show_browser
-
-def_key "2"
- change_browse_mode
+ show_media_library
 
 def_key "3"
  show_search_engine
@@ -262,17 +259,15 @@ def_key "3"
 def_key "3"
  reset_search_engine
 
-def_key "4"
- show_media_library
+# def_key "4"
+#  toggle_media_library_columns_mode
 
 def_key "4"
- toggle_media_library_columns_mode
+ show_tag_editor
+
 
 def_key "5"
  show_playlist_editor
-
-def_key "6"
- show_tag_editor
 
 def_key "7"
  show_outputs
