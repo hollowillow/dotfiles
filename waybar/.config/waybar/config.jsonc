@@ -1,6 +1,5 @@
 {
         "position": "top",
-        "margin": 5,
 
         "modules-left": [
                 "custom/uptime",
