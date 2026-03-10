@@ -1,27 +1,18 @@
 @import 'colors/gruvbox.css';
 
 * {
-    border: none;
-    border-radius: 0;
+        border: none;
+        border-radius: 0;
 
-    font-family: "Cascadia Code NF SemiBold";
-    font-size: 16px;
+        font-family: "Cascadia Code NF SemiBold";
+        font-size: 16px;
 
-    min-height: 0;
-    padding: 0;
-    margin: 1px;
+        margin: 5px 2px 0px 2px;
 }
 
 window#waybar {
         background: transparent;
 }
-
-/* tooltip { */
-/* } */
-
-/* tooltip label { */
-/* } */
-
 
 #custom-uptime, #clock, #cpu, #memory, #temperature, #workspaces, #submap,
 #mpris, #pulseaudio, #network, #disk, #tray {
@@ -29,9 +20,9 @@ window#waybar {
         border: 2px solid @bg1;
         color: @fg0;
 
-        padding: 1px 8px;
+        padding: 2px 8px;
         margin: 0 5px;
-        border-radius: 18px;
+        border-radius: 20px;
 }
 
 #custom-uptime {
@@ -39,20 +30,20 @@ window#waybar {
 }
 
 #cpu {
-    color: @bright_magenta;
+        color: @bright_magenta;
 }
 
 #memory {
-    color: @bright_magenta;
+        color: @bright_magenta;
 }
 
 #temperature {
-    color: @bright_magenta;
+        color: @bright_magenta;
 }
 #temperature.critical {
-    background-color: @bright_magenta;
-    color: @bg0;
-    border: 2px solid @magenta;
+        background-color: @bright_magenta;
+        color: @bg0;
+        border: 2px solid @magenta;
 }
 
 
@@ -64,6 +55,7 @@ window#waybar {
         padding: 0 5px;
         margin: 0 3px;
         border-radius: 50px;
+        min-width: 30px;
 
         color: transparent;
         background-color: @bg2;
@@ -86,8 +78,6 @@ window#waybar {
 }
 
 #submap {
-        /* background: @bright_red; */
-        /* border-color: @red; */
         background-color: @bright_red;
         border: 2px solid @red;
         color: @bg0;
@@ -118,6 +108,6 @@ window#waybar {
 }
 
 #disk {
-    color: @disk-color;
-    border-bottom-color: @disk-color;
+        color: @bright_orange;
+        border: 2px solid @orange;
 }
