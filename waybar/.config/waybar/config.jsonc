@@ -34,14 +34,14 @@
                 "format": " {usage}%",
                 "tooltip": false,
                 "interval": 10,
-                "on-click": "term-menu \"${PROCESS_MANAGER} -p 1\""
+                "on-click": "term-menu btop -p 1"
         },
 
         "memory": {
                 "format": "  {}%",
                 "tooltip": false,
                 "interval": 10,
-                "on-click": "term-menu \"${PROCESS_MANAGER} -p 2\""
+                "on-click": "term-menu btop -p 2"
         },
 
         "temperature": {
@@ -50,7 +50,7 @@
                 "interval": 10,
 	        "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input"],
 	        "critical-threshold": 80,
-                "on-click": "term-menu \"${PROCESS_MANAGER} -p 3\""
+                "on-click": "term-menu btop -p 3"
         },
 
         "clock": {
@@ -126,7 +126,7 @@
                 "format-disconnected": "󰖪 Disconnected",
                 "format-alt": "{ifname}: {ipaddr}/{cidr}",
                 "tooltip": false,
-                "on-click": "term-menu \"${PROCESS_MANAGER} -p 4\""
+                "on-click": "term-menu btop -p 4"
         },
 
         "disk": {

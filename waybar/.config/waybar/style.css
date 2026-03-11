@@ -93,6 +93,7 @@ window#waybar {
 #mpris {
         background-color: @bright_cyan;
         border: 2px solid @cyan;
+        padding-bottom: 0;
         color: @bg0;
 }
 
