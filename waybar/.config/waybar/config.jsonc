@@ -5,20 +5,21 @@
                 "custom/uptime",
                 "cpu",
                 "memory",
-                "temperature"
+                "temperature",
+                "disk",
+                "disk#2"
         ],
         "modules-center": [
                 "clock",
                 "hyprland/workspaces",
                 "keyboard-state",
-                "hyprland/submap"
+                "hyprland/submap",
+                "gamemode"
         ],
         "modules-right": [
                 "mpris",
                 "pulseaudio",
                 "network",
-                // "disk",
-                // "disk#2",
                 "tray"
         ],
 
@@ -77,6 +78,17 @@
                 "on-click": "hyprctl dispatch submap reset"
         },
 
+        "gamemode": {
+                "format": "GAMEMODE",
+                "hide-not-running": true,
+                "use-icon": false,
+                // "icon-name": "input-gaming-symbolic",
+                // "icon-spacing": 4,
+                // "icon-size": 20,
+                // "tooltip": true,
+                // "tooltip-format": "Games running: {count}"
+        },
+
         "mpris": {
 	        "format": "{player_icon} {status_icon} {title} - {artist}",
                 "tooltip": false,
@@ -129,7 +141,7 @@
                 "format": "/home {percentage_used}%",
                 "tooltip": false,
                 "interval": 600,
-                "path": "/home",
+                "path": "/home/hollowillow",
                 "on-click": "term-menu ncdu /home/hollowillow"
         },
 
