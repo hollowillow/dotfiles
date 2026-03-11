@@ -15,7 +15,7 @@ window#waybar {
 }
 
 #custom-uptime, #clock, #cpu, #memory, #temperature, #workspaces, #submap,
-#mpris, #pulseaudio, #network, #disk, #tray {
+#gamemode, #mpris, #pulseaudio, #network, #disk, #tray {
         background-color: @bg0;
         border: 2px solid @bg1;
         color: @fg0;
@@ -83,6 +83,13 @@ window#waybar {
         color: @bg0;
 }
 
+#gamemode {
+        background-color: @bright_green;
+        border: 2px solid @green;
+        padding: 3px 8px 5px 4px;
+        color: @bg0;
+}
+
 #mpris {
         background-color: @bright_cyan;
         border: 2px solid @cyan;
@@ -107,7 +114,11 @@ window#waybar {
         color: @bg0;
 }
 
+#tray {
+        padding-bottom: 6px;
+}
+
 #disk {
         color: @bright_orange;
-        border: 2px solid @orange;
+        /* border: 2px solid @orange; */
 }
