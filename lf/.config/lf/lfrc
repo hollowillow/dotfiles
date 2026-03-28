@@ -1,0 +1,96 @@
+clearmaps
+
+### KEYMAPS ###
+map q quit
+map <c-l> redraw
+map . set hidden!
+
+# movement
+map h updir
+map j down
+map k up
+map l open
+map <c-u> half-up
+map <c-d> half-down
+map ] jump-next
+map [ jump-prev
+map gg top
+map G bottom
+
+# open
+cmd open &{{
+        case "$(file --mime-type -b "$f")" in
+                video/*) setsid mpv "$f" & disown;;
+                image/*) setsid mpv --keep-open=yes "$f" & disown;;
+                */html) setsid firefox "$f" & disown;;
+                *) lf -remote "send $id \$$EDITOR $f";;
+        esac
+}}
+
+# operations
+cmd rename ${{
+        massren $fx
+        lf -remote "send $id unselect"
+}}
+map yy copy
+map dd cut
+map p paste
+map c clear
+map r rename
+map D delete
+
+# search
+map / search
+map ? search-back
+map n search-next
+map N search-prev
+
+# image manipulation
+cmd rotate_image $magick $f -rotate 90 $f
+cmd flip_image $magick $f -flip $f
+cmd mirror_image $magick $f -flop $f
+map ir rotate_image 
+map if flip_image 
+map im mirror_image
+
+# wallpapers
+cmd wallpaper_fill $pkill swaybg; swaybg --mode fill --image $f &
+cmd wallpaper_fit $pkill swaybg; swaybg --mode fit --image $f &
+nmap w wallpaper_fill
+nmap W wallpaper_fit
+
+# select
+cmd toggle_all &{{
+        for i in "$PWD"/*; do
+                lf -remote "send $id toggle $i"
+        done
+}}
+cmd select_all &{{
+        for i in "$PWD"/*; do
+                lf -remote "send $id toggle $i"
+        done
+}}
+nmap <tab> :toggle; down
+nmap <backtab> select_all
+nmap c unselect
+nmap <c-t> set preview!
+
+# fzf
+cmd fzf ${{
+        lf -remote "send $id select $PWD/"$(fzf)""
+}}
+cmd zoxide ${{
+        lf -remote "send $id cd /$(zoxide query --list --score | fzf | cut -f2- -d'/')"
+}}
+nmap f fzf
+nmap z zoxide
+
+# SETTINGS
+set autoquit false
+set previewer previewer
+set cleaner ~/.config/lf/cleaner
+set relativenumber
+set icons true
+set ratios 1:2:3
+set info size
+set dircounts
