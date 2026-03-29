@@ -1,14 +1,38 @@
+# BINDS
 --bind="tab:toggle-out,btab:toggle-all"
 --bind="ctrl-a:select-all,ctrl-d:deselect-all"
 --bind="ctrl-l:preview-down,ctrl-h:preview-up"
 --bind="ctrl-t:toggle-preview"
 --bind="ctrl-space:clear-query"
---style=full --no-scrollbar --border=rounded
---color border:235,list-border:235,input-border:235,header-border:235,preview-border:235
---color=preview-border:12:bold,preview-label:12:bold --preview-window=right --preview-label-pos=bottom
---color=fg:-1,list-fg:-1,selected-fg:11,preview-fg:-1
+
+# DEFAULTS
+--style=minimal
+--color=base16
+
+# PREVIEW
+--color=preview-label:4:bold
+--preview-window=right --preview-label-pos=bottom
+
+# FULL BORDERS
+--color=border:4:bold
+
+# SEARCH
+--color=marker:1:bold,pointer:1
+--color=fg:-1,list-fg:-1,selected-fg:3,preview-fg:-1
 --color=hl:3,selected-hl:3:bold
---color=current-fg:11:bold,current-bg:,current-hl:9:bold
---color=marker:9:bold,pointer:9
---color=prompt:12:bold,info:12:bold
+--color=current-fg:11:bold,current-bg:235,current-hl:9:bold
+
+# INFO
+--color=info:2:bold --info=inline-right
+
+# INPUT
+--color=prompt:4:bold
+--ghost="..." --color=ghost:8:italic
+--input-border=top
+
+# HEADER
 --color=header:5:italic
+--header-first --header-border=top
+
+# FOOTER
+--color=footer:6:italic
