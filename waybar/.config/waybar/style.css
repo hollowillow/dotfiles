@@ -1,55 +1,47 @@
-@import 'colors/gruvbox.css';
+@import 'colors/gruvbox-dark.css';
 
 * {
         border: none;
-        border-radius: 0;
 
-        font-family: "Cascadia Code NF SemiBold";
+        font-family: "Hasklug Nerd Font Propo";
+        font-weight: 700;
         font-size: 16px;
 
         margin: 5px 2px 0px 2px;
 }
 
-window#waybar {
-        background: transparent;
-}
+window#waybar { background: transparent; }
 
-#custom-uptime, #clock, #cpu, #memory, #temperature, #workspaces, #submap,
+#custom-nix, #clock, #cpu, #memory, #temperature, #workspaces, #submap,
 #gamemode, #mpris, #pulseaudio, #network, #disk, #tray {
         background-color: @bg0;
-        border: 2px solid @bg1;
         color: @fg0;
 
-        padding: 2px 8px;
-        margin: 0 5px;
+        border: 2px solid @bg1;
         border-radius: 20px;
+
+        padding: 2px 8px;
+        background-clip: padding-box;
+        margin: 0 5px;
 }
 
-#custom-uptime {
-        color: @bright_green;
+#custom-nix {
+        background-color: @bright_blue;
+        border: 2px solid @blue;
+        color: @bg0;
 }
 
-#cpu {
-        color: @bright_magenta;
-}
-
-#memory {
-        color: @bright_magenta;
-}
-
-#temperature {
-        color: @bright_magenta;
-}
+#cpu { color: @bright_magenta; }
+#memory { color: @bright_magenta; }
+#temperature { color: @bright_magenta; }
 #temperature.critical {
         background-color: @bright_magenta;
         color: @bg0;
         border: 2px solid @magenta;
 }
+#disk { color: @bright_orange; }
 
-
-#clock {
-        color: @bright_blue;
-}
+#clock { color: @bright_blue; }
 
 #workspaces button {
         padding: 0 5px;
@@ -93,33 +85,20 @@ window#waybar {
 #mpris {
         background-color: @bright_cyan;
         border: 2px solid @cyan;
-        padding-bottom: 0;
         color: @bg0;
 }
-
-#pulseaudio {
-        color: @bright_cyan;
-}
+#pulseaudio { color: @bright_cyan; }
 #pulseaudio.muted {
         background-color: @bright_cyan;
         border: 2px solid @cyan;
         color: @bg0;
 }
 
-#network {
-        color: @bright_magenta;
-}
+#network { color: @bright_magenta; }
 #network.disconnected {
         background-color: @bright_magenta;
         border: 2px solid @magenta;
         color: @bg0;
 }
 
-#tray {
-        padding-bottom: 6px;
-}
-
-#disk {
-        color: @bright_orange;
-        /* border: 2px solid @orange; */
-}
+#tray { padding-bottom: 6px; }
