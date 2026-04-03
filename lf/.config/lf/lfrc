@@ -85,6 +85,11 @@ cmd zoxide ${{
 nmap f fzf
 nmap z zoxide
 
+cmd stow $stow --stow $(basename $f)
+cmd stow-delete $stow --delete $(basename $f)
+map s stow
+map S stow-delete
+
 # SETTINGS
 set autoquit false
 set previewer previewer
