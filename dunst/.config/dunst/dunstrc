@@ -1,0 +1,71 @@
+[global]
+    sort = yes
+    follow = keyboard
+    sticky_history = yes
+    history_length = 10
+
+    width = (300, 400)
+    height = (0, 300)
+    origin = top-center
+    # origin = top-right
+    notification_limit = 3
+    offset = (0, 30)
+
+    background = "#1d2021"
+    foreground = "#d4be98"
+
+    corner_radius = 20
+    frame_width = 2
+    gap_size = 4
+    padding = 15
+    horizontal_padding = 15
+
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 20
+
+    enable_recursive_icon_lookup = true
+    icon_position = left
+    vertical_alignment = center
+    text_icon_padding = 20
+    min_icon_size = 16
+    max_icon_size = 64
+
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    font = Hasklug Nerd Font Propo Med
+    alignment = left
+    format = "<b>%s</b>\n%b\n"
+    markup = full
+    line_height = 5
+    word_wrap = yes
+    ignore_newline = no
+    ellipsize = end
+
+    indicate_hidden = yes
+    show_age_threshold = 60
+    idle_threshold = 120
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    frame_color = "#d4be98"
+    highlight = "#d4be98"
+    timeout = 5
+
+[urgency_normal]
+    frame_color = "#7daea3"
+    highlight = "#7daea3"
+    timeout = 10
+
+[urgency_critical]
+    frame_color = "#ea6962"
+    highlight = "#ea6962"
+    timeout = 0
