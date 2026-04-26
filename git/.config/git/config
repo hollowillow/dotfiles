@@ -1,0 +1,10 @@
+[safe]
+	directory = /etc/nixos
+[user]
+	email = 188023203+hollowillow@users.noreply.github.com
+	name = hollowillow
+	signingkey = /home/hollowillow/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
