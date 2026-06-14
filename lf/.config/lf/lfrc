@@ -1,31 +1,10 @@
+# https://github.com/gokcehan/lf/wiki
 clearmaps
 
 ### KEYMAPS ###
 map q quit
 map <c-l> redraw
 map . set hidden!
-
-# movement
-map h updir
-map j down
-map k up
-map l open
-map <c-u> half-up
-map <c-d> half-down
-map ] jump-next
-map [ jump-prev
-map gg top
-map G bottom
-
-# open
-cmd open &{{
-        case "$(file --mime-type -b "$f")" in
-                video/*) setsid mpv "$f" & disown;;
-                image/*) setsid mpv --keep-open=yes "$f" & disown;;
-                */html) setsid firefox "$f" & disown;;
-                *) lf -remote "send $id \$$EDITOR $f";;
-        esac
-}}
 
 # operations
 cmd rename ${{
@@ -53,43 +32,6 @@ map ir rotate_image
 map if flip_image 
 map im mirror_image
 
-# wallpapers
-cmd wallpaper_fill $pkill swaybg; swaybg --mode fill --image $f &
-cmd wallpaper_fit $pkill swaybg; swaybg --mode fit --image $f &
-nmap w wallpaper_fill
-nmap W wallpaper_fit
-
-# select
-cmd toggle_all &{{
-        for i in "$PWD"/*; do
-                lf -remote "send $id toggle $i"
-        done
-}}
-cmd select_all &{{
-        for i in "$PWD"/*; do
-                lf -remote "send $id toggle $i"
-        done
-}}
-nmap <tab> :toggle; down
-nmap <backtab> select_all
-nmap c unselect
-nmap <c-t> set preview!
-
-# fzf
-cmd fzf ${{
-        lf -remote "send $id select $PWD/"$(fzf)""
-}}
-cmd zoxide ${{
-        lf -remote "send $id cd /$(zoxide query --list --score | fzf | cut -f2- -d'/')"
-}}
-nmap f fzf
-nmap z zoxide
-
-cmd stow $stow --stow $(basename $f)
-cmd stow-delete $stow --delete $(basename $f)
-map s stow
-map S stow-delete
-
 # SETTINGS
 set autoquit false
 set previewer previewer
@@ -99,3 +41,162 @@ set icons true
 set ratios 1:2:3
 set info size
 set dircounts
+
+### KEYBINDS
+#### MOVEMENT
+map h updir
+map j down
+map k up
+map l open
+map <c-u> half-up
+map <c-d> half-down
+map ] jump-next
+map [ jump-prev
+map gg top
+map G bottom
+
+#### SELECT
+cmd toggle-all &{{
+        for i in "$PWD"/*; do
+                lf -remote "send $id toggle $i"
+        done
+}}
+nmap <tab> :toggle; down
+nmap <backtab> :toggle-all
+nmap c clear unselect
+map v visual-accept
+map V visual
+map o visual-change
+
+#### STOW
+cmd stow %{{
+    for file in $fx; do
+        package=$(basename $file)
+        stow --stow $package
+        printf "stowed $package"
+    done
+}}
+map s :stow
+
+cmd stow-delete %{{
+    for file in $fx; do
+        package=$(basename $file)
+        stow --delete $package
+        printf "deleted stowed $package"
+    done
+}}
+map S :stow-delete
+
+#### FZF
+cmd fzf ${{
+    res=$(fzf)
+    [ -n "$res" ] && lf -remote "send $id select $PWD/$res"
+}}
+map f :fzf
+
+#### WALLPAPERS
+cmd wallpaper %{{
+    wp set $f
+    printf "set $f as wallpaper"
+}}
+nmap w :wallpaper
+
+### FUNCTIONS
+#### PIN CERTAIN FILES
+set sortby custom
+set reverse
+
+cmd on-load &{{
+    cmds=""
+    for file in "$@"; do  
+        # Get just the filename (basename)
+        filename=$(basename "$file")
+
+        # Assign custominfo based on filename
+        case "$filename" in
+            README.*|LICENSE.*|SCRATCH.*|CHANGELOG.*|TODO.*)
+                cmds="${cmds}addcustominfo \"${file}\" \"0\"; "
+                ;;
+            flake.*)
+                cmds="${cmds}addcustominfo \"${file}\" \"1\"; "
+                ;;
+            .gitignore|.envrc)
+                cmds="${cmds}addcustominfo \"${file}\" \"2\"; "
+                ;;
+        esac
+    done
+
+    if [ -n "$cmds" ]; then
+        lf -remote "send $id :$cmds"
+    fi
+}}
+
+#### EXA INTEGRATION
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+set rulerfmt  "%a| %p| \033[7;31m %m \033[0m| \033[7;33m %c \033[0m| \033[7;35m %s \033[0m| \033[7;36m %v \033[0m|f=`%f',|  %i/%t"
+
+### COMMANDS
+#### FILE OPERATIONS
+cmd open ${{
+    for file in $fx; do
+        case $(xdg-mime query filetype "$file") in
+            text/*|application/json) $EDITOR "$file";;
+            application/x-executable) "$file";;
+            audio/*) setsid mpv --force-window=yes "$file" &disown;;
+            video/*) setsid mpv "$file" & disown;;
+            image/*) setsid mpv --keep-open=yes "$file" & disown;;
+            *) xdg-open "$file" ;;
+        esac
+    done
+}}
+
+cmd mkdir %{{
+    if [ -n "$1" ]; then
+        ans="$1"
+    else
+        printf "Directory name: "
+        read ans
+    fi
+    mkdir "$ans"
+}}
+
+cmd touch %{{
+    if [ -n "$1" ]; then
+        ans="$1"
+    else
+        printf "File name: "
+        read ans
+    fi
+    touch "$ans"
+}}
+
+cmd chmod %{{
+    if [ -n "$1" ]; then
+        ans="$1"
+    else
+        printf "Mode Bits: "
+        read ans
+    fi
+
+    for file in "$fx"
+    do
+        chmod $ans $file
+    done
+
+    lf -remote 'send reload'
+}}
+
+#### LOCATIONS
+map gh cd ~/
+map gc cd /etc/nixos
+map gw cd "~/media/pictures/wallpapers"
+
+map gm cd "~/media"
+map gn cd "~/notes"
+map gi cd "~/inbox"
+map gd cd "~/dev"
+map gs cd "~/stow"
+map gp cd "~/projects"
+map gf cd "~/flakes"
