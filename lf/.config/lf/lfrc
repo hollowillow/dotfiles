@@ -7,15 +7,10 @@ map <c-l> redraw
 map . set hidden!
 
 # operations
-cmd rename ${{
-        massren $fx
-        lf -remote "send $id unselect"
-}}
 map yy copy
 map dd cut
 map p paste
 map c clear
-map r rename
 map D delete
 
 # search
@@ -47,7 +42,6 @@ set dircounts
 map h updir
 map j down
 map k up
-map l open
 map <c-u> half-up
 map <c-d> half-down
 map ] jump-next
@@ -134,23 +128,46 @@ cmd on-load &{{
 #### EXA INTEGRATION
 cmd on-select &{{
     lf -remote "send $id set statfmt \"$(exa -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+    # lf -remote "send $id redraw"
 }}
 set rulerfmt  "%a| %p| \033[7;31m %m \033[0m| \033[7;33m %c \033[0m| \033[7;35m %s \033[0m| \033[7;36m %v \033[0m|f=`%f',|  %i/%t"
 
 ### COMMANDS
-#### FILE OPERATIONS
+set filesep ":"
 cmd open ${{
-    for file in $fx; do
-        case $(xdg-mime query filetype "$file") in
-            text/*|application/json) $EDITOR "$file";;
-            application/x-executable) "$file";;
-            audio/*) setsid mpv --force-window=yes "$file" &disown;;
-            video/*) setsid mpv "$file" & disown;;
-            image/*) setsid mpv --keep-open=yes "$file" & disown;;
-            *) xdg-open "$file" ;;
+    IFS=':'
+    files=$(file --mime-type $fx | awk -F':[[:space:]]+' '{print $2, $1}')
+
+    IFS=$'\n'
+    for file in $files; do
+        case $file in
+            text/* | inode/x-empty*) filename=${file#* } ; text+="${filename}:" ;;
+            image/*) filename=${file#* } ; image+="${filename}:" ;;
+            video/*) filename=${file#* } ; video+="${filename}:" ;;
+            audio/*) filename=${file#* } ; audio+="${filename}:" ;;
+            *) filename=${file#* } ; other+="${filename}:" ;;
         esac
     done
+
+    IFS=':'
+    [ -z "$text" ] || $EDITOR -- $text
+    [ -z "$image" ] || setsid mpv --keep-open=yes -- $image & disown
+    [ -z "$video" ] || setsid mpv -- $video & disown
+    [ -z "$audio" ] || setsid mpv --force-window=yes -- $audio & disown
+    [ -z "$other" ] || xdg-open $other
+
+    lf -remote "send $id unselect"
+    lf -remote "send $id redraw"
 }}
+map l open
+
+set filesep ':'
+cmd rename ${{
+    IFS=':'
+    massren $fx
+    lf -remote "send $id unselect"
+}}
+map r rename
 
 cmd mkdir %{{
     if [ -n "$1" ]; then
